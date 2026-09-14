@@ -1,0 +1,15 @@
+{
+  "name": "skillset",
+  "private": true,
+  "packageManager": "pnpm@10.28.2",
+  "scripts": {
+    "web": "pnpm --filter @skillset/site dev",
+    "build": "pnpm --filter @skillset/site build",
+    "typecheck": "pnpm -r typecheck",
+    "app": "make -C macos run",
+    "app:test": "swift test --package-path macos"
+  },
+  "engines": {
+    "node": "24.x"
+  }
+}

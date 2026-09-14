@@ -1,0 +1,64 @@
+---
+import Base from "../layouts/Base.astro";
+import riyadh from "../assets/riyadh-skyline.png";
+---
+
+<Base title="About Skillset" description="Meet the idea behind Skillset: a native Mac app that gives your agent skills a home." path="/about/">
+  <article class="about">
+    <header>
+      <p class="eyebrow">A little more about us</p>
+      <h1>Small app.<br />A more capable <span class="highlight">you.</span></h1>
+      <p class="intro">A home for your agent skills, built with care.</p>
+    </header>
+
+    <section aria-labelledby="maker">
+      <h2 id="maker">Hi, I’m Hamza.</h2>
+      <p>I’m building Skillset, a native Mac app for looking after the skills your AI agents use. A place to see what you have, find something useful, and keep it all together.</p>
+      <p>The goal is simple: spend less time managing your setup, and more time making things with it.</p>
+    </section>
+
+    <section aria-labelledby="why">
+      <h2 id="why">Good skills deserve a good home.</h2>
+      <p>Skills can live in different folders, arrive through different tools, and end up shared across several agents. It’s easy to lose track of what’s installed or where it came from.</p>
+      <p>Skillset brings that picture together. Browse a curated catalog, install a skill or a whole bundle, and check for updates from the original source.</p>
+    </section>
+
+    <section aria-labelledby="yours">
+      <h2 id="yours">Your setup stays yours.</h2>
+      <p>Your skills remain ordinary files on your Mac. Skillset works with the agents and folders you already use, and keeps plugin-managed skills clearly marked as read-only.</p>
+      <p>Even the suggestions are local. They look at shared tags and skills missing from your bundles, and tell you why something is worth a look. No mystery score. Just a useful next step.</p>
+    </section>
+
+    <a class="link" href="/#skills">Find your next skill</a>
+  </article>
+
+  <figure slot="footer-art" class="about-city">
+    <figcaption>Riyadh, Saudi Arabia <span aria-hidden="true">↗</span></figcaption>
+    <img src={riyadh.src} width={riyadh.width} height={riyadh.height} alt="Hand-drawn Riyadh skyline with Kingdom Centre, Masmak Fort, Al Faisaliah Tower, and the King Abdullah Financial District, among date palms." loading="lazy" decoding="async" />
+  </figure>
+</Base>
+
+<style>
+  .about { max-width: 704px; margin: 0 auto; padding: 64px 32px 72px; }
+  .about header { margin-bottom: 48px; }
+  .about h1 { margin-top: 14px; font-size: clamp(42px, 5vw, 62px); font-weight: 720; line-height: 1.1; letter-spacing: -.055em; }
+  .intro { font-size: 17px; margin-top: 24px; }
+  .about section { margin-block: 32px; }
+  .about h2 { font-size: 17px; font-weight: 650; letter-spacing: -.02em; margin-bottom: 10px; }
+  .about p:not(.eyebrow) { color: var(--fg-muted); line-height: 1.8; }
+  .about section p + p { margin-top: 12px; }
+  .about > a { display: inline-block; margin-top: 8px; font-size: 14px; }
+  .about-city { max-width: 1800px; margin: 58px auto 0; padding-inline: 16px; }
+  .about-city figcaption { text-align: center; color: var(--fg-subtle); font-size: 12px; margin-bottom: 16px; }
+  .about-city figcaption span { color: var(--accent); margin-left: 5px; }
+  .about-city img { display: block; width: 100%; height: auto; mix-blend-mode: multiply; }
+  :global(:root[data-theme="dark"]) .about-city img { filter: invert(1) hue-rotate(180deg); mix-blend-mode: screen; }
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme="light"])) .about-city img { filter: invert(1) hue-rotate(180deg); mix-blend-mode: screen; }
+  }
+  @media (max-width: 700px) {
+    .about { padding: 36px 24px 48px; }
+    .about header { margin-bottom: 36px; }
+    .about-city { margin-top: 40px; padding-inline: 6px; }
+  }
+</style>

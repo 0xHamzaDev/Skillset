@@ -1,0 +1,156 @@
+---
+import { catalog, lede, npxCommand, tags } from "../data/catalog";
+import { copy } from "../copy";
+
+const preview = 12;
+const counts = catalog.skills.map((_, i) => copy.resultCount(i)).concat(copy.resultCount(catalog.skills.length));
+---
+
+<div
+  class="browser"
+  data-browser
+  data-counts={JSON.stringify(counts)}
+  data-preview={preview}
+  data-copy={copy.copy}
+  data-copied={copy.copied}
+>
+  <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+    <input
+      type="search"
+      data-search
+      placeholder={copy.searchPlaceholder}
+      aria-label={copy.searchPlaceholder}
+      class="field sm:max-w-[340px]"
+    />
+    <p class="label m-0 sm:ms-auto" data-count aria-live="polite">{copy.resultCount(catalog.skills.length)}</p>
+  </div>
+
+  <div class="mt-4 flex flex-wrap gap-1.5">
+    <button type="button" class="tag tag-on" data-tag="" aria-pressed="true">{copy.allTag}</button>
+    {
+      tags.map((tag) => (
+        <button type="button" class="tag" data-tag={tag} lang="en" aria-pressed="false">
+          {tag}
+        </button>
+      ))
+    }
+  </div>
+
+  <div class="mt-12 flex flex-col items-center gap-4 py-8 text-center" data-empty hidden>
+    <p class="type-body m-0">{copy.noResults}</p>
+    <button type="button" class="btn btn-quiet btn-sm" data-clear>{copy.clearFilters}</button>
+  </div>
+
+  <ul class="mt-6 list-none p-0" data-rows>
+    {
+      catalog.skills.map((skill, index) => (
+        <li
+          class="row"
+          data-row
+          data-tags={skill.tags.join(" ")}
+          data-text={`${skill.title} ${skill.name} ${skill.description} ${skill.author}`.toLowerCase()}
+          hidden={index >= preview}
+        >
+          <div class="min-w-0">
+            <div class="flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
+              <a href={`/skills/${skill.id}/`} lang="en" class="type-title no-underline hover:text-accent">
+                {skill.title}
+              </a>
+              <span class="mono" dir="ltr" lang="en">
+                {skill.source.owner}/{skill.source.repo}
+              </span>
+            </div>
+            <p class="type-body mt-1.5 line-clamp-2 max-w-[76ch] text-[13.5px]" dir="ltr" lang="en">{lede(skill.description)}</p>
+          </div>
+          <div class="row-actions flex items-center gap-2">
+            <a href={`skillset://skill/${skill.id}`} class="btn btn-quiet btn-sm">
+              {copy.install}
+            </a>
+            <button type="button" class="tag" data-command={npxCommand(skill)} aria-label={`${copy.copy} ${npxCommand(skill)}`}>
+              {copy.copy}
+            </button>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+
+  <div class="row mt-0 flex justify-center" data-more>
+    <button type="button" class="btn btn-quiet btn-sm" data-expand>{copy.showAll(catalog.skills.length)}</button>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-browser]").forEach((browser) => {
+    const search = browser.querySelector<HTMLInputElement>("[data-search]")!;
+    const count = browser.querySelector<HTMLElement>("[data-count]")!;
+    const empty = browser.querySelector<HTMLElement>("[data-empty]")!;
+    const more = browser.querySelector<HTMLElement>("[data-more]")!;
+    const rows = [...browser.querySelectorAll<HTMLElement>("[data-row]")];
+    const chips = [...browser.querySelectorAll<HTMLButtonElement>("[data-tag]")];
+    const counts: string[] = JSON.parse(browser.dataset.counts ?? "[]");
+    const preview = Number(browser.dataset.preview ?? 12);
+    let tag = "";
+    let expanded = false;
+
+    const apply = () => {
+      const needle = search.value.trim().toLowerCase();
+      const filtered = needle !== "" || tag !== "";
+      let shown = 0;
+      for (const row of rows) {
+        const matches =
+          (tag === "" || (row.dataset.tags ?? "").split(" ").includes(tag)) &&
+          (needle === "" || (row.dataset.text ?? "").includes(needle));
+        if (matches) shown += 1;
+        row.hidden = !matches || (!filtered && !expanded && shown > preview);
+      }
+      count.textContent = counts[shown] ?? String(shown);
+      empty.hidden = shown > 0;
+      more.hidden = filtered || expanded || shown <= preview;
+    };
+
+    search.addEventListener("input", apply);
+    browser.querySelector<HTMLButtonElement>("[data-clear]")?.addEventListener("click", () => {
+      search.value = "";
+      tag = "";
+      chips.forEach((chip) => chip.setAttribute("aria-pressed", String(chip.dataset.tag === "")));
+      chips.forEach((chip) => chip.classList.toggle("tag-on", chip.dataset.tag === ""));
+      apply();
+      search.focus();
+    });
+
+    chips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        tag = chip.dataset.tag === tag ? "" : (chip.dataset.tag ?? "");
+        chips.forEach((other) => {
+          const on = (other.dataset.tag ?? "") === tag;
+          other.classList.toggle("tag-on", on);
+          other.setAttribute("aria-pressed", String(on));
+        });
+        apply();
+      });
+    });
+
+    browser.querySelector<HTMLButtonElement>("[data-expand]")?.addEventListener("click", () => {
+      expanded = true;
+      apply();
+      rows[preview]?.querySelector("a")?.focus();
+    });
+
+    browser.querySelectorAll<HTMLButtonElement>("[data-command]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(button.dataset.command ?? "");
+        } catch {
+          return;
+        }
+        button.textContent = browser.dataset.copied ?? "";
+        button.classList.add("tag-on");
+        setTimeout(() => {
+          button.textContent = browser.dataset.copy ?? "";
+          button.classList.remove("tag-on");
+        }, 1500);
+      });
+    });
+  });
+</script>

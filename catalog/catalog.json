@@ -1,0 +1,1070 @@
+{
+  "version": 1,
+  "updatedAt": "2026-09-14",
+  "skills": [
+    {
+      "id": "docx",
+      "title": "Word documents",
+      "name": "docx",
+      "description": "Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files) or Word templates (.dotx files). Triggers include: any mention of 'Word doc', 'word document', '.docx', '.dotx', or requests to produce professional documents with formatting like tables of contents, headings, page numbers, or letterheads. Also use when extracting or reorganizing content from .docx or .dotx files, inserting or replacing images in documents, performing find-and-replace in Word files, working with tracked changes or comments, or converting content into a polished Word document. If the user asks for a 'report', 'memo', 'letter', 'template', or similar deliverable as a Word or .docx file, use this skill. Do NOT use for PDFs, spreadsheets, Google Docs, or general coding tasks unrelated to document generation.",
+      "author": "Anthropic",
+      "tags": [
+        "documents",
+        "office"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "anthropics",
+        "repo": "skills",
+        "ref": "main",
+        "path": "skills/docx"
+      }
+    },
+    {
+      "id": "pdf",
+      "title": "PDF",
+      "name": "pdf",
+      "description": "Use this skill whenever the user wants to do anything with PDF files. This includes reading or extracting text/tables from PDFs, combining or merging multiple PDFs into one, splitting PDFs apart, rotating pages, adding watermarks, creating new PDFs, filling PDF forms, encrypting/decrypting PDFs, extracting images, and OCR on scanned PDFs to make them searchable. If the user mentions a .pdf file or asks to produce one, use this skill.",
+      "author": "Anthropic",
+      "tags": [
+        "documents",
+        "office"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "anthropics",
+        "repo": "skills",
+        "ref": "main",
+        "path": "skills/pdf"
+      }
+    },
+    {
+      "id": "pptx",
+      "title": "PowerPoint",
+      "name": "pptx",
+      "description": "Use this skill any time a .pptx or .potx file is involved in any way — as input, output, or both. This includes: creating slide decks, pitch decks, or presentations; reading, parsing, or extracting text from any .pptx or .potx file (even if the extracted content will be used elsewhere, like in an email or summary); editing, modifying, or updating existing presentations; combining or splitting slide files; working with templates (.potx), layouts, speaker notes, or comments. Trigger whenever the user mentions \\\"deck,\\\" \\\"slides,\\\" \\\"presentation,\\\" or references a .pptx or .potx filename, regardless of what they plan to do with the content afterward. If a .pptx or .potx file needs to be opened, created, or touched, use this skill.",
+      "author": "Anthropic",
+      "tags": [
+        "documents",
+        "office"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "anthropics",
+        "repo": "skills",
+        "ref": "main",
+        "path": "skills/pptx"
+      }
+    },
+    {
+      "id": "xlsx",
+      "title": "Excel",
+      "name": "xlsx",
+      "description": "Use this skill any time a spreadsheet file is the primary input or output. This means any task where the user wants to: open, read, edit, or fix an existing .xlsx, .xlsm, .xltx, .csv, or .tsv file (e.g., adding columns, computing formulas, formatting, charting, cleaning messy data); create a new spreadsheet from scratch or from other data sources; or convert between tabular file formats. Trigger especially when the user references a spreadsheet file by name or path — even casually (like \\\"the xlsx in my downloads\\\") — and wants something done to it or produced from it. Also trigger for cleaning or restructuring messy tabular data files (malformed rows, misplaced headers, junk data) into proper spreadsheets. The deliverable must be a spreadsheet file. Do NOT trigger when the primary deliverable is a Word document, HTML report, standalone Python script, database pipeline, or Google Sheets API integration, even if tabular data is involved.",
+      "author": "Anthropic",
+      "tags": [
+        "documents",
+        "office",
+        "data"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "anthropics",
+        "repo": "skills",
+        "ref": "main",
+        "path": "skills/xlsx"
+      }
+    },
+    {
+      "id": "frontend-design",
+      "title": "Frontend design",
+      "name": "frontend-design",
+      "description": "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.",
+      "author": "Anthropic",
+      "tags": [
+        "design",
+        "frontend"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "anthropics",
+        "repo": "skills",
+        "ref": "main",
+        "path": "skills/frontend-design"
+      }
+    },
+    {
+      "id": "web-artifacts-builder",
+      "title": "Web artifacts builder",
+      "name": "web-artifacts-builder",
+      "description": "Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.",
+      "author": "Anthropic",
+      "tags": [
+        "frontend",
+        "react"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "anthropics",
+        "repo": "skills",
+        "ref": "main",
+        "path": "skills/web-artifacts-builder"
+      }
+    },
+    {
+      "id": "canvas-design",
+      "title": "Canvas design",
+      "name": "canvas-design",
+      "description": "Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists' work to avoid copyright violations.",
+      "author": "Anthropic",
+      "tags": [
+        "design",
+        "visual"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "anthropics",
+        "repo": "skills",
+        "ref": "main",
+        "path": "skills/canvas-design"
+      }
+    },
+    {
+      "id": "theme-factory",
+      "title": "Theme factory",
+      "name": "theme-factory",
+      "description": "Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact that has been creating, or can generate a new theme on-the-fly.",
+      "author": "Anthropic",
+      "tags": [
+        "design",
+        "visual"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "anthropics",
+        "repo": "skills",
+        "ref": "main",
+        "path": "skills/theme-factory"
+      }
+    },
+    {
+      "id": "algorithmic-art",
+      "title": "Algorithmic art",
+      "name": "algorithmic-art",
+      "description": "Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields, or particle systems. Create original algorithmic art rather than copying existing artists' work to avoid copyright violations.",
+      "author": "Anthropic",
+      "tags": [
+        "design",
+        "visual",
+        "creative"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "anthropics",
+        "repo": "skills",
+        "ref": "main",
+        "path": "skills/algorithmic-art"
+      }
+    },
+    {
+      "id": "brand-guidelines",
+      "title": "Brand guidelines",
+      "name": "brand-guidelines",
+      "description": "Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic's look-and-feel. Use it when brand colors or style guidelines, visual formatting, or company design standards apply.",
+      "author": "Anthropic",
+      "tags": [
+        "design",
+        "writing"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "anthropics",
+        "repo": "skills",
+        "ref": "main",
+        "path": "skills/brand-guidelines"
+      }
+    },
+    {
+      "id": "mcp-builder",
+      "title": "MCP builder",
+      "name": "mcp-builder",
+      "description": "Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate external APIs or services, whether in Python (FastMCP) or Node/TypeScript (MCP SDK).",
+      "author": "Anthropic",
+      "tags": [
+        "agents",
+        "tooling"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "anthropics",
+        "repo": "skills",
+        "ref": "main",
+        "path": "skills/mcp-builder"
+      }
+    },
+    {
+      "id": "skill-creator",
+      "title": "Skill creator",
+      "name": "skill-creator",
+      "description": "Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill's description for better triggering accuracy.",
+      "author": "Anthropic",
+      "tags": [
+        "agents",
+        "tooling"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "anthropics",
+        "repo": "skills",
+        "ref": "main",
+        "path": "skills/skill-creator"
+      }
+    },
+    {
+      "id": "webapp-testing",
+      "title": "Web app testing",
+      "name": "webapp-testing",
+      "description": "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.",
+      "author": "Anthropic",
+      "tags": [
+        "testing",
+        "frontend"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "anthropics",
+        "repo": "skills",
+        "ref": "main",
+        "path": "skills/webapp-testing"
+      }
+    },
+    {
+      "id": "doc-coauthoring",
+      "title": "Doc co-authoring",
+      "name": "doc-coauthoring",
+      "description": "Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs, decision docs, or similar structured content. This workflow helps users efficiently transfer context, refine content through iteration, and verify the doc works for readers. Trigger when user mentions writing docs, creating proposals, drafting specs, or similar documentation tasks.",
+      "author": "Anthropic",
+      "tags": [
+        "writing",
+        "documents"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "anthropics",
+        "repo": "skills",
+        "ref": "main",
+        "path": "skills/doc-coauthoring"
+      }
+    },
+    {
+      "id": "internal-comms",
+      "title": "Internal comms",
+      "name": "internal-comms",
+      "description": "A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.).",
+      "author": "Anthropic",
+      "tags": [
+        "writing"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "anthropics",
+        "repo": "skills",
+        "ref": "main",
+        "path": "skills/internal-comms"
+      }
+    },
+    {
+      "id": "slack-gif-creator",
+      "title": "Slack GIF creator",
+      "name": "slack-gif-creator",
+      "description": "Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts. Use when users request animated GIFs for Slack like \"make me a GIF of X doing Y for Slack.",
+      "author": "Anthropic",
+      "tags": [
+        "creative",
+        "visual"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "anthropics",
+        "repo": "skills",
+        "ref": "main",
+        "path": "skills/slack-gif-creator"
+      }
+    },
+    {
+      "id": "claude-api",
+      "title": "Claude API",
+      "name": "claude-api",
+      "description": "Reference for the Claude API / Anthropic SDK — model ids, pricing, params, streaming, tool use, MCP, agents, caching, token counting, model migration. TRIGGER — read BEFORE opening the target file; don't skip because it \"looks like a one-liner\" — whenever: the prompt names Claude/Anthropic in any form (Claude, Anthropic, Fable, Opus, Sonnet, Haiku, `anthropic`, `@anthropic-ai`, `claude-*`, `us.anthropic.*`, `[1m]`); the user asks about an LLM (pricing/model choice/limits/caching) — never answer from memory; OR the task is LLM-shaped with provider unstated (agent/MCP/tool-definition/multi-agent/RAG/LLM-judge/computer-use; generate/summarize/extract/classify/rewrite/converse over NL; debugging refusals/cutoffs/streaming/tool-calls/tokens). SKIP only when another provider is being worked on (overrides all triggers): OpenAI/GPT/Gemini/Llama/Mistral/Cohere/Ollama named in the query; OR `grep -rE 'openai|langchain_openai|google.generativeai|genai|mistralai|cohere|ollama'` over the project hits (run this grep FIRST if no provider named — don't Read the file).",
+      "author": "Anthropic",
+      "tags": [
+        "agents",
+        "api"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "anthropics",
+        "repo": "skills",
+        "ref": "main",
+        "path": "skills/claude-api"
+      }
+    },
+    {
+      "id": "react-best-practices",
+      "title": "React best practices",
+      "name": "vercel-react-best-practices",
+      "description": "React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements.",
+      "author": "Vercel",
+      "tags": [
+        "react",
+        "frontend",
+        "performance"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "vercel-labs",
+        "repo": "agent-skills",
+        "ref": "main",
+        "path": "skills/react-best-practices"
+      }
+    },
+    {
+      "id": "composition-patterns",
+      "title": "Composition patterns",
+      "name": "vercel-composition-patterns",
+      "description": "React composition patterns that scale. Use when refactoring components with boolean prop proliferation, building flexible component libraries, or designing reusable APIs. Triggers on tasks involving compound components, render props, context providers, or component architecture. Includes React 19 API changes.",
+      "author": "Vercel",
+      "tags": [
+        "react",
+        "frontend"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "vercel-labs",
+        "repo": "agent-skills",
+        "ref": "main",
+        "path": "skills/composition-patterns"
+      }
+    },
+    {
+      "id": "web-design-guidelines",
+      "title": "Web design guidelines",
+      "name": "web-design-guidelines",
+      "description": "Review UI code for Web Interface Guidelines compliance. Use when asked to \"review my UI\", \"check accessibility\", \"audit design\", \"review UX\", or \"check my site against best practices\".",
+      "author": "Vercel",
+      "tags": [
+        "design",
+        "frontend",
+        "accessibility"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "vercel-labs",
+        "repo": "agent-skills",
+        "ref": "main",
+        "path": "skills/web-design-guidelines"
+      }
+    },
+    {
+      "id": "react-view-transitions",
+      "title": "React view transitions",
+      "name": "vercel-react-view-transitions",
+      "description": "Guide for implementing smooth, native-feeling animations using React's View Transition API (`<ViewTransition>` component, `addTransitionType`, and CSS view transition pseudo-elements). Use this skill whenever the user wants to add page transitions, animate route changes, create shared element animations, animate enter/exit of components, animate list reorder, implement directional (forward/back) navigation animations, or integrate view transitions in Next.js. Also use when the user mentions view transitions, `startViewTransition`, `ViewTransition`, transition types, or asks about animating between UI states in React without third-party animation libraries.",
+      "author": "Vercel",
+      "tags": [
+        "react",
+        "animation"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "vercel-labs",
+        "repo": "agent-skills",
+        "ref": "main",
+        "path": "skills/react-view-transitions"
+      }
+    },
+    {
+      "id": "react-native-skills",
+      "title": "React Native",
+      "name": "vercel-react-native-skills",
+      "description": "React Native and Expo best practices for building performant mobile apps. Use when building React Native components, optimizing list performance, implementing animations, or working with native modules. Triggers on tasks involving React Native, Expo, mobile performance, or native platform APIs.",
+      "author": "Vercel",
+      "tags": [
+        "react-native",
+        "mobile"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "vercel-labs",
+        "repo": "agent-skills",
+        "ref": "main",
+        "path": "skills/react-native-skills"
+      }
+    },
+    {
+      "id": "deploy-to-vercel",
+      "title": "Deploy to Vercel",
+      "name": "deploy-to-vercel",
+      "description": "Deploy applications and websites to Vercel. Use when the user requests deployment actions like \"deploy my app\", \"deploy and give me the link\", \"push this live\", or \"create a preview deployment\".",
+      "author": "Vercel",
+      "tags": [
+        "deploy",
+        "vercel"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "vercel-labs",
+        "repo": "agent-skills",
+        "ref": "main",
+        "path": "skills/deploy-to-vercel"
+      }
+    },
+    {
+      "id": "vercel-optimize",
+      "title": "Vercel optimize",
+      "name": "vercel-optimize",
+      "description": "Use for Vercel cost and performance optimization on deployed projects, especially Next.js, SvelteKit, Nuxt, and limited Astro apps. Collect Vercel metrics, usage, project config, and code scan results first; investigate only metric-backed candidates; produce ranked recommendations grounded in verified files and version-aware Vercel/framework docs. Trigger for Vercel bill reduction, slow or expensive routes, caching opportunities, Function Invocations, Build Minutes, Fast Data Transfer, Core Web Vitals, Bot Management, Fluid compute, or cost breakdown requests.",
+      "author": "Vercel",
+      "tags": [
+        "performance",
+        "vercel"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "vercel-labs",
+        "repo": "agent-skills",
+        "ref": "main",
+        "path": "skills/vercel-optimize"
+      }
+    },
+    {
+      "id": "vercel-cli-with-tokens",
+      "title": "Vercel CLI with tokens",
+      "name": "vercel-cli-with-tokens",
+      "description": "Deploy and manage projects on Vercel using token-based authentication. Use when working with Vercel CLI using access tokens rather than interactive login — e.g. \"deploy to vercel\", \"set up vercel\", \"add environment variables to vercel\".",
+      "author": "Vercel",
+      "tags": [
+        "deploy",
+        "vercel"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "vercel-labs",
+        "repo": "agent-skills",
+        "ref": "main",
+        "path": "skills/vercel-cli-with-tokens"
+      }
+    },
+    {
+      "id": "writing-guidelines",
+      "title": "Writing guidelines",
+      "name": "writing-guidelines",
+      "description": "Review docs/prose for Writing Guidelines compliance. Use when asked to \"review my docs\", \"check writing style\", \"audit prose\", \"review docs voice and tone\", or \"check this page against the writing handbook\".",
+      "author": "Vercel",
+      "tags": [
+        "writing"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "vercel-labs",
+        "repo": "agent-skills",
+        "ref": "main",
+        "path": "skills/writing-guidelines"
+      }
+    },
+    {
+      "id": "brainstorming",
+      "title": "Brainstorming",
+      "name": "brainstorming",
+      "description": "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.",
+      "author": "Jesse Vincent",
+      "tags": [
+        "process",
+        "planning"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "obra",
+        "repo": "superpowers",
+        "ref": "main",
+        "path": "skills/brainstorming"
+      }
+    },
+    {
+      "id": "writing-plans",
+      "title": "Writing plans",
+      "name": "writing-plans",
+      "description": "Use when you have a spec or requirements for a multi-step task, before touching code",
+      "author": "Jesse Vincent",
+      "tags": [
+        "process",
+        "planning"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "obra",
+        "repo": "superpowers",
+        "ref": "main",
+        "path": "skills/writing-plans"
+      }
+    },
+    {
+      "id": "executing-plans",
+      "title": "Executing plans",
+      "name": "executing-plans",
+      "description": "Use when you have a written implementation plan to execute in a separate session with review checkpoints",
+      "author": "Jesse Vincent",
+      "tags": [
+        "process"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "obra",
+        "repo": "superpowers",
+        "ref": "main",
+        "path": "skills/executing-plans"
+      }
+    },
+    {
+      "id": "test-driven-development",
+      "title": "Test-driven development",
+      "name": "test-driven-development",
+      "description": "Use when implementing any feature or bugfix, before writing implementation code",
+      "author": "Jesse Vincent",
+      "tags": [
+        "process",
+        "testing"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "obra",
+        "repo": "superpowers",
+        "ref": "main",
+        "path": "skills/test-driven-development"
+      }
+    },
+    {
+      "id": "systematic-debugging",
+      "title": "Systematic debugging",
+      "name": "systematic-debugging",
+      "description": "Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes",
+      "author": "Jesse Vincent",
+      "tags": [
+        "process",
+        "debugging"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "obra",
+        "repo": "superpowers",
+        "ref": "main",
+        "path": "skills/systematic-debugging"
+      }
+    },
+    {
+      "id": "verification-before-completion",
+      "title": "Verification before completion",
+      "name": "verification-before-completion",
+      "description": "Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always",
+      "author": "Jesse Vincent",
+      "tags": [
+        "process",
+        "testing"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "obra",
+        "repo": "superpowers",
+        "ref": "main",
+        "path": "skills/verification-before-completion"
+      }
+    },
+    {
+      "id": "requesting-code-review",
+      "title": "Requesting code review",
+      "name": "requesting-code-review",
+      "description": "Use when completing tasks, implementing major features, or before merging to verify work meets requirements",
+      "author": "Jesse Vincent",
+      "tags": [
+        "process",
+        "review"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "obra",
+        "repo": "superpowers",
+        "ref": "main",
+        "path": "skills/requesting-code-review"
+      }
+    },
+    {
+      "id": "receiving-code-review",
+      "title": "Receiving code review",
+      "name": "receiving-code-review",
+      "description": "Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation",
+      "author": "Jesse Vincent",
+      "tags": [
+        "process",
+        "review"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "obra",
+        "repo": "superpowers",
+        "ref": "main",
+        "path": "skills/receiving-code-review"
+      }
+    },
+    {
+      "id": "using-git-worktrees",
+      "title": "Git worktrees",
+      "name": "using-git-worktrees",
+      "description": "Use when starting feature work that needs isolation from current workspace or before executing implementation plans - ensures an isolated workspace exists via native tools or git worktree fallback",
+      "author": "Jesse Vincent",
+      "tags": [
+        "process",
+        "git"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "obra",
+        "repo": "superpowers",
+        "ref": "main",
+        "path": "skills/using-git-worktrees"
+      }
+    },
+    {
+      "id": "dispatching-parallel-agents",
+      "title": "Parallel agents",
+      "name": "dispatching-parallel-agents",
+      "description": "Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies",
+      "author": "Jesse Vincent",
+      "tags": [
+        "process",
+        "agents"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "obra",
+        "repo": "superpowers",
+        "ref": "main",
+        "path": "skills/dispatching-parallel-agents"
+      }
+    },
+    {
+      "id": "subagent-driven-development",
+      "title": "Subagent-driven development",
+      "name": "subagent-driven-development",
+      "description": "Use when executing implementation plans with independent tasks in the current session",
+      "author": "Jesse Vincent",
+      "tags": [
+        "process",
+        "agents"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "obra",
+        "repo": "superpowers",
+        "ref": "main",
+        "path": "skills/subagent-driven-development"
+      }
+    },
+    {
+      "id": "finishing-a-development-branch",
+      "title": "Finishing a branch",
+      "name": "finishing-a-development-branch",
+      "description": "Use when implementation is complete, all tests pass, and you need to decide how to integrate the work",
+      "author": "Jesse Vincent",
+      "tags": [
+        "process",
+        "git"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "obra",
+        "repo": "superpowers",
+        "ref": "main",
+        "path": "skills/finishing-a-development-branch"
+      }
+    },
+    {
+      "id": "writing-skills",
+      "title": "Writing skills",
+      "name": "writing-skills",
+      "description": "Use when creating new skills, editing existing skills, or verifying skills work before deployment",
+      "author": "Jesse Vincent",
+      "tags": [
+        "agents",
+        "tooling"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "obra",
+        "repo": "superpowers",
+        "ref": "main",
+        "path": "skills/writing-skills"
+      }
+    },
+    {
+      "id": "obsidian-markdown",
+      "title": "Obsidian Markdown",
+      "name": "obsidian-markdown",
+      "description": "Create and edit Obsidian Flavored Markdown with wikilinks, embeds, callouts, properties, and other Obsidian-specific syntax. Use when working with .md files in Obsidian, or when the user mentions wikilinks, callouts, frontmatter, tags, embeds, or Obsidian notes.",
+      "author": "Steph Ango",
+      "tags": [
+        "obsidian",
+        "notes"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "kepano",
+        "repo": "obsidian-skills",
+        "ref": "main",
+        "path": "skills/obsidian-markdown"
+      }
+    },
+    {
+      "id": "obsidian-bases",
+      "title": "Obsidian Bases",
+      "name": "obsidian-bases",
+      "description": "Create and edit Obsidian Bases (.base files) with views, filters, formulas, and summaries. Use when working with .base files, creating database-like views of notes, or when the user mentions Bases, table views, card views, filters, or formulas in Obsidian.",
+      "author": "Steph Ango",
+      "tags": [
+        "obsidian",
+        "notes",
+        "data"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "kepano",
+        "repo": "obsidian-skills",
+        "ref": "main",
+        "path": "skills/obsidian-bases"
+      }
+    },
+    {
+      "id": "obsidian-cli",
+      "title": "Obsidian CLI",
+      "name": "obsidian-cli",
+      "description": "Interact with Obsidian vaults using the Obsidian CLI to read, create, search, and manage notes, tasks, properties, and more. Also supports plugin and theme development with commands to reload plugins, run JavaScript, capture errors, take screenshots, and inspect the DOM. Use when the user asks to interact with their Obsidian vault, manage notes, search vault content, perform vault operations from the command line, or develop and debug Obsidian plugins and themes.",
+      "author": "Steph Ango",
+      "tags": [
+        "obsidian",
+        "tooling"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "kepano",
+        "repo": "obsidian-skills",
+        "ref": "main",
+        "path": "skills/obsidian-cli"
+      }
+    },
+    {
+      "id": "json-canvas",
+      "title": "JSON Canvas",
+      "name": "json-canvas",
+      "description": "Create and edit JSON Canvas files (.canvas) with nodes, edges, groups, and connections. Use when working with .canvas files, creating visual canvases, mind maps, flowcharts, or when the user mentions Canvas files in Obsidian.",
+      "author": "Steph Ango",
+      "tags": [
+        "obsidian",
+        "visual"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "kepano",
+        "repo": "obsidian-skills",
+        "ref": "main",
+        "path": "skills/json-canvas"
+      }
+    },
+    {
+      "id": "defuddle",
+      "title": "Defuddle",
+      "name": "defuddle",
+      "description": "Extract clean markdown content from web pages using Defuddle CLI, removing clutter and navigation to save tokens. Use instead of WebFetch when the user provides a URL to read or analyze, for online documentation, articles, blog posts, or any standard web page. Do NOT use for URLs ending in .md — those are already markdown, use WebFetch directly.",
+      "author": "Steph Ango",
+      "tags": [
+        "obsidian",
+        "web"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "kepano",
+        "repo": "obsidian-skills",
+        "ref": "main",
+        "path": "skills/defuddle"
+      }
+    },
+    {
+      "id": "knap",
+      "title": "Knap",
+      "name": "knap",
+      "description": "Render Markdown from templates and structured data using Knap CLI. Use when the user asks to apply a Knap template, turn JSON or CSV data into notes, batch-generate Markdown files, or format Defuddle output into a note.",
+      "author": "Steph Ango",
+      "tags": [
+        "obsidian",
+        "notes"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "kepano",
+        "repo": "obsidian-skills",
+        "ref": "main",
+        "path": "skills/knap"
+      }
+    },
+    {
+      "id": "supabase",
+      "title": "Supabase",
+      "name": "supabase",
+      "description": "Use when doing ANY task involving Supabase. Triggers: Supabase products (Database, Auth, Edge Functions, Realtime, Storage, Vectors, Cron, Queues); client libraries and SSR integrations (supabase-js, @supabase/ssr) in Next.js, React, SvelteKit, Astro, Remix; auth issues (login, logout, sessions, JWT, cookies, getSession, getUser, getClaims, RLS); Supabase CLI or MCP server; schema changes, migrations, declarative schemas, security audits, Postgres extensions (pg_graphql, pg_cron, pg_vector); debugging and troubleshooting errors or unexpected behavior on Supabase projects (HTTP errors, Postgres errors, RLS surprises, permission denied, schema cache issues, timeouts, Edge Function crashes, Realtime drops, Storage failures) and reading or querying logs (Logs Explorer, ClickHouse).",
+      "author": "Supabase",
+      "tags": [
+        "supabase",
+        "backend",
+        "database"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "supabase",
+        "repo": "agent-skills",
+        "ref": "main",
+        "path": "skills/supabase"
+      }
+    },
+    {
+      "id": "supabase-postgres-best-practices",
+      "title": "Postgres best practices",
+      "name": "supabase-postgres-best-practices",
+      "description": "Postgres best practices maintained by Supabase, for Postgres running anywhere. Load this skill BEFORE writing or changing anything that lives in a Postgres database: creating or altering tables and columns (including choosing column types), schema design, migrations and declarative schema files, RLS policies and the tests that verify them, indexes, triggers, database functions, queues and scheduled jobs (pg_cron, pgmq), vector/semantic search (pgvector), and restoring dumps (pg_restore) or importing data. Also load it when diagnosing slow queries, high CPU, timeouts, EXPLAIN plans, connection exhaustion, locking, bloat, or rows visible to the wrong user or tenant. This is not just a performance guide — schema, migration, security, and SQL authoring tasks need these rules too, even for a one-column change or a single query.",
+      "author": "Supabase",
+      "tags": [
+        "supabase",
+        "database",
+        "performance"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "supabase",
+        "repo": "agent-skills",
+        "ref": "main",
+        "path": "skills/supabase-postgres-best-practices"
+      }
+    },
+    {
+      "id": "find-skills",
+      "title": "Find skills",
+      "name": "find-skills",
+      "description": "Helps users discover and install agent skills when they ask questions like \"how do I do X\", \"find a skill for X\", \"is there a skill that can...\", or express interest in extending capabilities. This skill should be used when the user is looking for functionality that might exist as an installable skill.",
+      "author": "Vercel",
+      "tags": [
+        "agents",
+        "tooling"
+      ],
+      "source": {
+        "kind": "github",
+        "owner": "vercel-labs",
+        "repo": "skills",
+        "ref": "main",
+        "path": "skills/find-skills"
+      }
+    }
+  ],
+  "bundles": [
+    {
+      "id": "developer",
+      "symbol": "hammer.fill",
+      "name": {
+        "en": "Developer",
+        "ar": "المطوّر"
+      },
+      "tagline": {
+        "en": "A disciplined loop: plan it, test it first, debug by method, verify before you call it done.",
+        "ar": "حلقة عمل منضبطة: خطّط، اختبر أولاً، صحّح بمنهج، وتحقّق قبل أن تقول انتهيت."
+      },
+      "why": {
+        "en": "Agents write code fast and confidently wrong. These skills make yours plan before it types, write the failing test first, and prove the fix instead of claiming it.",
+        "ar": "الوكلاء يكتبون الكود بسرعة وبثقة خاطئة. هذه المهارات تجعل وكيلك يخطّط قبل أن يكتب، ويبدأ بالاختبار الفاشل، ويثبت الإصلاح بدل ادّعائه."
+      },
+      "skills": [
+        "brainstorming",
+        "writing-plans",
+        "test-driven-development",
+        "systematic-debugging",
+        "verification-before-completion",
+        "using-git-worktrees"
+      ],
+      "tags": [
+        "process",
+        "testing",
+        "git"
+      ]
+    },
+    {
+      "id": "ai-engineer",
+      "symbol": "cpu.fill",
+      "name": {
+        "en": "AI Engineer",
+        "ar": "مهندس الذكاء الاصطناعي"
+      },
+      "tagline": {
+        "en": "Build with models, tools and agents: the Claude API, MCP servers, and skills of your own.",
+        "ar": "ابنِ بالنماذج والأدوات والوكلاء: واجهة Claude، وخوادم MCP، ومهارات من صنعك."
+      },
+      "why": {
+        "en": "Everything needed to go from calling a model to shipping an agent: current API reference, MCP server patterns, and the tooling to author and find skills.",
+        "ar": "كل ما يلزم للانتقال من استدعاء نموذج إلى إطلاق وكيل: مرجع محدّث للواجهة، وأنماط خوادم MCP، وأدوات لتأليف المهارات والعثور عليها."
+      },
+      "skills": [
+        "claude-api",
+        "mcp-builder",
+        "skill-creator",
+        "writing-skills",
+        "find-skills"
+      ],
+      "tags": [
+        "agents",
+        "api",
+        "tooling"
+      ]
+    },
+    {
+      "id": "frontend",
+      "symbol": "square.on.square.dashed",
+      "name": {
+        "en": "Front-end",
+        "ar": "الواجهات"
+      },
+      "tagline": {
+        "en": "React that scales, interfaces that avoid the generic look, motion with a reason.",
+        "ar": "React قابل للتوسّع، وواجهات بعيدة عن الشكل النمطي، وحركة لها سبب."
+      },
+      "why": {
+        "en": "Front-end work is where agents produce the most convincing slop. These skills hold the line on composition, accessibility and restraint.",
+        "ar": "الواجهات هي المكان الذي ينتج فيه الوكلاء أكثر النتائج إقناعاً وأقلها جودة. هذه المهارات تحافظ على التركيب والإتاحة والانضباط."
+      },
+      "skills": [
+        "react-best-practices",
+        "composition-patterns",
+        "web-design-guidelines",
+        "react-view-transitions",
+        "frontend-design"
+      ],
+      "tags": [
+        "react",
+        "frontend",
+        "design"
+      ]
+    },
+    {
+      "id": "research",
+      "symbol": "books.vertical.fill",
+      "name": {
+        "en": "Research",
+        "ar": "البحث"
+      },
+      "tagline": {
+        "en": "Read the web, capture what matters, and keep it in formats you own.",
+        "ar": "اقرأ الويب، والتقط ما يهم، واحفظه بصيغ تملكها."
+      },
+      "why": {
+        "en": "Turn scattered reading into a vault your agent can query: clean article extraction, Markdown and Bases, and a canvas for how the pieces connect.",
+        "ar": "حوّل قراءاتك المتفرقة إلى مكتبة يستطيع وكيلك البحث فيها: استخلاص نظيف للمقالات، وMarkdown وBases، ولوحة تربط الأجزاء ببعضها."
+      },
+      "skills": [
+        "defuddle",
+        "obsidian-markdown",
+        "obsidian-bases",
+        "json-canvas",
+        "obsidian-cli"
+      ],
+      "tags": [
+        "obsidian",
+        "notes",
+        "web"
+      ]
+    },
+    {
+      "id": "writing",
+      "symbol": "text.alignleft",
+      "name": {
+        "en": "Writing",
+        "ar": "الكتابة"
+      },
+      "tagline": {
+        "en": "Draft with a human in the loop, in a voice that stays yours.",
+        "ar": "اكتب بمشاركة إنسان في الحلقة، وبصوت يبقى صوتك."
+      },
+      "why": {
+        "en": "Stops the agent from writing at you. Co-authoring turns drafting into a conversation, and the guidelines keep the result in your brand's voice.",
+        "ar": "يمنع الوكيل من الكتابة نحوك. التأليف المشترك يحوّل الصياغة إلى حوار، والإرشادات تُبقي النتيجة بصوت علامتك."
+      },
+      "skills": [
+        "doc-coauthoring",
+        "writing-guidelines",
+        "internal-comms",
+        "brand-guidelines",
+        "docx"
+      ],
+      "tags": [
+        "writing",
+        "documents"
+      ]
+    },
+    {
+      "id": "office",
+      "symbol": "doc.on.doc.fill",
+      "name": {
+        "en": "Office files",
+        "ar": "ملفات المكتب"
+      },
+      "tagline": {
+        "en": "Read, write and repair Word, PDF, PowerPoint and Excel without leaving the chat.",
+        "ar": "اقرأ وأنشئ وأصلح ملفات Word وPDF وPowerPoint وExcel دون مغادرة المحادثة."
+      },
+      "why": {
+        "en": "Four formats that arrive as attachments and leave as deliverables. Extraction, editing, form filling and OCR, all handled locally.",
+        "ar": "أربع صيغ تصلك كمرفقات وتخرج كمخرجات نهائية. استخلاص وتحرير وتعبئة نماذج وتعرّف ضوئي، كلها تُنفَّذ محلياً."
+      },
+      "skills": [
+        "docx",
+        "pdf",
+        "pptx",
+        "xlsx"
+      ],
+      "tags": [
+        "documents",
+        "office"
+      ]
+    },
+    {
+      "id": "ship",
+      "symbol": "arrow.up.forward.square.fill",
+      "name": {
+        "en": "Ship it",
+        "ar": "الإطلاق"
+      },
+      "tagline": {
+        "en": "From a working branch to production: deploy, database and the tuning in between.",
+        "ar": "من فرع يعمل إلى الإنتاج: نشر وقاعدة بيانات وما بينهما من ضبط."
+      },
+      "why": {
+        "en": "The last mile, where most agent help stops. Deployment flows, Vercel optimisation, and Postgres practices that survive real traffic.",
+        "ar": "الميل الأخير، حيث تتوقف معظم مساعدة الوكلاء. تدفقات النشر، وتحسين Vercel، وممارسات Postgres التي تصمد أمام حركة حقيقية."
+      },
+      "skills": [
+        "deploy-to-vercel",
+        "vercel-optimize",
+        "vercel-cli-with-tokens",
+        "supabase",
+        "supabase-postgres-best-practices"
+      ],
+      "tags": [
+        "deploy",
+        "database",
+        "performance"
+      ]
+    }
+  ]
+}

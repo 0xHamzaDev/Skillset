@@ -1,0 +1,10 @@
+---
+import BundlePage from "../../../components/BundlePage.astro";
+import { catalog } from "../../../data/catalog";
+
+export const getStaticPaths = () => catalog.bundles.map((bundle) => ({ params: { id: bundle.id }, props: { bundle } }));
+
+const { bundle } = Astro.props;
+---
+
+<BundlePage bundle={bundle} />

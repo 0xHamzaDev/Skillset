@@ -1,0 +1,61 @@
+---
+import SkillBrowser from "./SkillBrowser.astro";
+import { copy } from "../copy";
+import { bundleSkills, catalog, lede, sourceUrl } from "../data/catalog";
+const examples = ["frontend-design", "pdf", "react-best-practices", "webapp-testing"].flatMap((id) => catalog.skills.find((skill) => skill.id === id) ?? []);
+const symbols = ["✳", "▤", "⌘", "✓"];
+---
+<section class="hero shell">
+  <p class="hero-intro"><span class="mini-mark" aria-hidden="true">✳</span> Your agents. A little more capable.</p>
+  <h1>A home for your<br /><span class="highlight">agent skills.</span></h1>
+  <p class="hero-description">Find the good ones. Keep them together.<br />Give every agent on your Mac a better set of skills.</p>
+  <a href="#download" class="btn btn-primary hero-cta"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5" /></svg>Get Skillset for Mac</a>
+  <p class="hero-note">Apple Silicon · macOS 26+ <span aria-hidden="true">·</span> Free & open source</p>
+</section>
+<section class="demo-stage shell" aria-label="Interactive Skillset preview">
+  <div class="demo-window">
+    <div class="demo-toolbar"><span class="traffic-lights" aria-hidden="true"><i></i><i></i><i></i></span><span>Skillset</span><span class="preview-badge">Interactive preview</span></div>
+    <div class="demo-layout">
+      <div class="demo-sidebar">
+        <span class="demo-sidebar-label">Your workspace</span>
+        <a href="#skills" class="demo-nav"><span aria-hidden="true">▤</span> Installed</a>
+        <span class="demo-nav selected"><span aria-hidden="true">✳</span> Discover <span class="demo-count">{catalog.skills.length}</span></span>
+        <a href="#bundles" class="demo-nav"><span aria-hidden="true">▧</span> Bundles <span class="demo-count">{catalog.bundles.length}</span></a>
+        <a href="#how" class="demo-nav"><span aria-hidden="true">↻</span> Updates</a>
+        <div class="demo-sidebar-bottom"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><div>One home.<br /><span>All your agents.</span></div></div>
+      </div>
+      <div class="demo-list">
+        <div class="demo-heading"><h2>Discover</h2><p>Good skills. Ready to make yours.</p></div>
+        <p class="demo-list-label">From the catalog</p>
+        {examples.map((skill, i) => <button class="demo-skill" type="button" data-demo-select={skill.id} aria-pressed={i === 0} aria-controls={`demo-${skill.id}`}><span class={`skill-icon tone-${i}`} aria-hidden="true">{symbols[i]}</span><span><strong>{skill.title}</strong><small>{skill.author}</small></span><span class="demo-chevron" aria-hidden="true">›</span></button>)}
+        <a class="demo-all" href="#skills">Explore all {catalog.skills.length} skills</a>
+      </div>
+      <div class="demo-details" aria-live="polite">
+        {examples.map((skill, i) => <div data-demo-detail={skill.id} id={`demo-${skill.id}`} hidden={i !== 0}><span class={`skill-icon detail-icon tone-${i}`} aria-hidden="true">{symbols[i]}</span><p class="demo-source">{skill.source.owner} / {skill.source.repo}</p><h3>{skill.title}</h3><p class="demo-description">{lede(skill.description)}</p><a class="btn btn-primary btn-sm" href={`/skills/${skill.id}/`}>Explore skill</a><div class="demo-tags">{skill.tags.slice(0, 3).map((tag) => <span class="tag">{tag}</span>)}</div><a class="demo-source-link" href={sourceUrl(skill)}>View original source ↗</a></div>)}
+      </div>
+    </div>
+  </div>
+  <p class="demo-caption">Take a look around. Pick a skill to explore it.</p>
+</section>
+<section class="agents shell" aria-label="Compatible agents"><p>Bring your favorite agents.</p><div><span>Claude Code</span><span>Codex</span><span>Cursor</span><span>OpenCode</span><span>Gemini CLI</span><span>+ more</span></div></section>
+<section class="shell benefits" id="how">
+  <div class="section-heading"><h2>Less setup.<br />More <span class="soft-word">possibility.</span></h2><p>Skills give your agents a way to do things well.<br />Skillset gives you a simple way to look after them.</p></div>
+  <div class="benefit-grid">
+    <article><span class="benefit-icon" aria-hidden="true">⌕</span><h3>Find what you already have.</h3><p>See installed skills across your Mac in one place. Know where they came from and which agents can use them.</p></article>
+    <article><span class="benefit-icon" aria-hidden="true">✳</span><h3>Find what fits next.</h3><p>In the app, discover skills that complement your setup, with a clear reason behind each suggestion.</p></article>
+    <article><span class="benefit-icon" aria-hidden="true">↻</span><h3>Keep the good work going.</h3><p>Install, update, and remove skills without digging through folders. Your next project starts ready.</p></article>
+  </div>
+</section>
+<section class="bundle-section" id="bundles"><div class="shell">
+  <div class="section-heading"><h2>Good things<br />come in <span class="highlight">sets.</span></h2><p>Starting something new? Start with a bundle.<br />A considered set of skills, ready for the work you do.</p></div>
+  <ul class="bundle-grid">{catalog.bundles.map((bundle, i) => <li class="bundle-card"><a href={`/bundles/${bundle.id}/`}><span class={`bundle-art tone-${i % 4}`} aria-hidden="true"><i></i><i></i><i></i></span><span class="label">{bundleSkills(bundle).length} skills</span><h3>{bundle.name.en}</h3><p>{bundle.tagline.en}</p><span class="bundle-link">Meet the set <span aria-hidden="true">↗</span></span></a></li>)}</ul>
+</div></section>
+<section id="skills" class="shell catalog-section"><div class="section-heading"><h2>A skill for<br />your next thing.</h2><p>Real skills, from real makers.<br />Browse the catalog and see exactly where each one comes from.</p></div><SkillBrowser /></section>
+<section id="download" class="shell download-section"><span class="brand-mark large" aria-hidden="true"><i></i><i></i><i></i></span><h2>Make yourself<br /><span class="highlight">right at home.</span></h2><p>Your skills. Your agents. All together on your Mac.</p><a href={copy.releaseUrl} class="btn btn-primary hero-cta">View Mac releases <span aria-hidden="true">↗</span></a><p class="type-meta">Apple Silicon · macOS 26+ · Free beta</p><p class="release-note">Unsigned beta. macOS may require approval in Privacy &amp; Security. Installation steps are included with each release.</p></section>
+<script>
+  const selections = document.querySelectorAll<HTMLButtonElement>("[data-demo-select]");
+  selections.forEach((button) => button.addEventListener("click", () => {
+    selections.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+    document.querySelectorAll<HTMLElement>("[data-demo-detail]").forEach((detail) => { detail.hidden = detail.dataset.demoDetail !== button.dataset.demoSelect; });
+  }));
+</script>

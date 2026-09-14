@@ -1,0 +1,62 @@
+---
+import { accent, dark, light } from "../tokens";
+import "../styles/theme.css";
+import { copy } from "../copy";
+const vars = (palette: Record<keyof typeof light, string>, tone: "light" | "dark") =>
+  Object.entries(palette).map(([key, value]) => `--${key.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`)}:${value}`).concat([
+    `--accent:${accent[tone]}`, `--accent-soft:${tone === "light" ? accent.softLight : accent.softDark}`,
+    `--accent-line:${tone === "light" ? accent.lineLight : accent.lineDark}`, `color-scheme:${tone}`,
+  ]).join(";");
+const shared = `:root{${vars(light, "light")}}@media(prefers-color-scheme:dark){:root:not([data-theme=light]){${vars(dark, "dark")}}}:root[data-theme=dark]{${vars(dark, "dark")}}`;
+const { title = "Skillset — A home for your agent skills", description = copy.metaDescription, path = "/" } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href={`https://skillset.app${path}`} />
+    <style is:inline set:html={shared}></style>
+    <script is:inline>
+      try { const theme = localStorage.getItem("skillset-theme"); if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme; } catch {}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header class="nav shell">
+      <a href="/" class="brand" aria-label="Skillset home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>Skillset</a>
+      <nav aria-label="Main navigation">
+        <a href="/#skills" class="nav-link">Skills</a>
+        <a href="/#bundles" class="nav-link">Bundles</a>
+        <a href="/about/" class="nav-link" aria-current={path === "/about/" ? "page" : undefined}>About</a>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark appearance" data-theme-toggle><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20 13a8 8 0 0 1-9-9 8 8 0 1 0 9 9Z" /></svg></button>
+        <a href="/#download" class="btn btn-primary btn-sm">Get Skillset</a>
+      </nav>
+    </header>
+    <main id="content"><slot /></main>
+    <footer class="shell footer">
+      <div class="footer-links"><p>A little more skill. A lot less setup.</p><a href="/about/">About</a><a href={copy.repoUrl}>Source on GitHub</a><span>© {new Date().getFullYear()} Skillset</span></div>
+      {!Astro.slots.has("footer-art") && <p class="footer-wordmark" aria-hidden="true">Skillset</p>}
+    </footer>
+    <slot name="footer-art" />
+    <script>
+      const button = document.querySelector<HTMLButtonElement>("[data-theme-toggle]")!;
+      const preference = matchMedia("(prefers-color-scheme: dark)");
+      const isDark = () => document.documentElement.dataset.theme ? document.documentElement.dataset.theme === "dark" : preference.matches;
+      const sync = () => button.setAttribute("aria-label", `Switch to ${isDark() ? "light" : "dark"} appearance`);
+      button.addEventListener("click", () => {
+        const theme = isDark() ? "light" : "dark";
+        document.documentElement.dataset.theme = theme;
+        try { localStorage.setItem("skillset-theme", theme); } catch {}
+        sync();
+      });
+      preference.addEventListener("change", sync);
+      sync();
+    </script>
+  </body>
+</html>

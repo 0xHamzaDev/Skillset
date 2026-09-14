@@ -1,0 +1,10 @@
+---
+import SkillPage from "../../components/SkillPage.astro";
+import { catalog } from "../../data/catalog";
+
+export const getStaticPaths = () => catalog.skills.map((skill) => ({ params: { id: skill.id }, props: { skill } }));
+
+const { skill } = Astro.props;
+---
+
+<SkillPage skill={skill} />

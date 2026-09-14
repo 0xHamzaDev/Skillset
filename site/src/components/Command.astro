@@ -1,0 +1,29 @@
+---
+const { command, label, copied } = Astro.props as { command: string; label: string; copied: string };
+---
+
+<div class="command" dir="ltr">
+  <code class="min-w-0 flex-1 overflow-x-auto whitespace-nowrap">{command}</code>
+  <button type="button" class="tag command-copy shrink-0" data-copied={copied} aria-label={`${label} ${command}`}>
+    {label}
+  </button>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>(".command-copy").forEach((button) => {
+    const label = button.textContent;
+    button.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(button.previousElementSibling?.textContent ?? "");
+      } catch {
+        return;
+      }
+      button.textContent = button.dataset.copied ?? label;
+      button.classList.add("tag-on");
+      setTimeout(() => {
+        button.textContent = label;
+        button.classList.remove("tag-on");
+      }, 1500);
+    });
+  });
+</script>

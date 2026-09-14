@@ -1,0 +1,82 @@
+---
+import Base from "../layouts/Base.astro";
+import Command from "./Command.astro";
+import { copy } from "../copy";
+import { bundlesWith, lede, npxCommand, sourceUrl, type Skill } from "../data/catalog";
+
+const { skill } = Astro.props as { skill: Skill };
+const bundles = bundlesWith(skill);
+const lead = lede(skill.description);
+---
+
+<Base
+  title={`${skill.title} · ${copy.appName}`}
+  description={lead}
+  path={`/skills/${skill.id}/`}
+>
+  <article class="mx-auto w-full max-w-[720px] px-5 pt-10 pb-20 sm:px-8 sm:pt-14">
+    <a href={`${copy.home}#skills`} class="link text-[13px]">{copy.allSkills}</a>
+
+    <p class="eyebrow mt-8">{copy.skillLabel}</p>
+    <h1 class="type-section mt-4" lang="en">{skill.title}</h1>
+    <p class="type-body mt-4 text-[16px]" dir="ltr" lang="en">{lead}</p>
+    {
+      lead !== skill.description && (
+        <details class="disclose mt-4">
+          <summary>{copy.fullDescription}</summary>
+          <p class="type-body mt-3 text-[14px]" dir="ltr" lang="en">{skill.description}</p>
+        </details>
+      )
+    }
+
+    <dl class="mt-8 grid gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-3">
+      <div class="bg-bg p-4">
+        <dt class="label">{copy.by}</dt>
+        <dd class="type-title m-0 mt-1.5 text-[14px]">{skill.author}</dd>
+      </div>
+      <div class="bg-bg p-4">
+        <dt class="mono">id</dt>
+        <dd class="m-0 mt-1.5 font-mono text-[13px] break-all" dir="ltr">{skill.name}</dd>
+      </div>
+      <div class="bg-bg p-4">
+        <dt class="mono">source</dt>
+        <dd class="m-0 mt-1.5">
+          <a href={sourceUrl(skill)} class="link font-mono text-[13px] break-all" dir="ltr">
+            {skill.source.owner}/{skill.source.repo}
+          </a>
+        </dd>
+      </div>
+    </dl>
+
+    <ul class="mt-5 flex list-none flex-wrap gap-1.5 p-0">
+      {skill.tags.map((tag) => <li class="tag" lang="en">{tag}</li>)}
+    </ul>
+
+    <div class="mt-8 flex flex-wrap items-center gap-2.5">
+      <a href={`skillset://skill/${skill.id}`} class="btn btn-primary">{copy.openInApp}</a>
+      <a href={copy.releaseUrl} class="btn btn-quiet">{copy.download}</a>
+    </div>
+
+    <p class="eyebrow mt-10">{copy.orCli}</p>
+    <div class="mt-3">
+      <Command command={npxCommand(skill)} label={copy.copy} copied={copy.copied} />
+    </div>
+
+    {
+      bundles.length > 0 && (
+        <div class="rule mt-12 pt-8">
+          <p class="eyebrow">{copy.includedIn}</p>
+          <ul class="mt-4 flex list-none flex-wrap gap-1.5 p-0">
+            {bundles.map((bundle) => (
+              <li>
+                <a href={`/bundles/${bundle.id}/`} class="tag no-underline">
+                  {bundle.name.en}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
+  </article>
+</Base>
